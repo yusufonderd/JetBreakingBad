@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BreakingBad</string>
+    <string name="loading">Please waiting…</string>
+    <string name="error_occurred">Error occurred </string>
+    <string name="characters">Characters</string>
+    <string name="quotes">Quotes</string>
+
+</resources>
