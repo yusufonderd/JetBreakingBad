@@ -5,10 +5,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltNavGraphViewModel
 import androidx.navigation.NavController
-import com.yonder.breakingbadcompose.R
+import com.yonder.breakingbadcompose.ui.common.ErrorView
+import com.yonder.breakingbadcompose.ui.common.LoadingView
 
 
 @Composable
@@ -18,7 +18,7 @@ fun Characters(navController: NavController) {
 
     when (characterState) {
         is CharactersUiState.Loading -> {
-            Text(text = stringResource(id = R.string.loading))
+            LoadingView()
         }
 
         is CharactersUiState.Success -> {
@@ -31,7 +31,11 @@ fun Characters(navController: NavController) {
             }
         }
         is CharactersUiState.Error -> {
-            Text(text = stringResource(id = R.string.error_occurred))
+            ErrorView(
+                errorMessage =
+                (characterState as CharactersUiState.Error)
+                    .exception.localizedMessage.orEmpty()
+            )
         }
 
     }
