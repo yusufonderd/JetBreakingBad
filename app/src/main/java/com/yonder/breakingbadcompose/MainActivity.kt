@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.*
@@ -14,6 +13,10 @@ import com.yonder.breakingbadcompose.ui.characters.Characters
 import com.yonder.breakingbadcompose.ui.quotes.Quotes
 import com.yonder.breakingbadcompose.ui.theme.*
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.ui.graphics.vector.ImageVector
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -32,7 +35,12 @@ class MainActivity : ComponentActivity() {
                                     navBackStackEntry?.arguments?.getString(KEY_ROUTE)
                                 items.forEach { screen ->
                                     BottomNavigationItem(
-                                        icon = { Icons.Filled.Favorite },
+                                        icon = {
+                                            Icon(
+                                                imageVector = screen.icon,
+                                                contentDescription = null,
+                                            )
+                                        },
                                         label = { Text(stringResource(screen.resourceId)) },
                                         selected = currentRoute == screen.route,
                                         onClick = {
@@ -69,9 +77,13 @@ val items = listOf(
     Screen.Quotes,
 )
 
-sealed class Screen(val route: String, @StringRes val resourceId: Int) {
-    object Characters : Screen("characters", R.string.characters)
-    object Quotes : Screen("quotes", R.string.quotes)
+sealed class Screen(
+    val route: String,
+    @StringRes val resourceId: Int,
+    val icon: ImageVector
+) {
+    object Characters : Screen("characters", R.string.characters, Icons.Filled.Star)
+    object Quotes : Screen("quotes", R.string.quotes, Icons.Filled.List)
 }
 
 
