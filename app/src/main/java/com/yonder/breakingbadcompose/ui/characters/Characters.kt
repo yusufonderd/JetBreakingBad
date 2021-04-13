@@ -25,7 +25,7 @@ fun Characters(navController: NavController) {
             LazyColumn {
                 item {
                     (characterState as CharactersUiState.Success).characters.forEach {
-                        Text(text = it.name.orEmpty())
+                        Text(text = it.name)
                     }
                 }
             }

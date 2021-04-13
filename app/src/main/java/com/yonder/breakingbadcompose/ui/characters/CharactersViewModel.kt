@@ -2,8 +2,8 @@ package com.yonder.breakingbadcompose.ui.characters
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yonder.breakingbadcompose.data.remote.datasource.characters.repo.CharactersRepository
-import com.yonder.breakingbadcompose.data.remote.response.CharacterResponse
+import com.yonder.breakingbadcompose.data.remote.datasource.characters.usecase.CharactersUseCase
+import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
-    private val repository: CharactersRepository
+    private val charactersUseCase: CharactersUseCase
 ) : ViewModel() {
 
     private val _characters: MutableStateFlow<CharactersUiState> =
@@ -26,7 +26,7 @@ class CharactersViewModel @Inject constructor(
 
     private fun getCharacters() {
         viewModelScope.launch {
-            repository.getCharacters().collect { result ->
+            charactersUseCase.getCharacters().collect { result ->
                 result.onSuccess { characters ->
                     _characters.value = CharactersUiState.Success(characters)
                 }.onError { error ->
@@ -39,7 +39,7 @@ class CharactersViewModel @Inject constructor(
 }
 
 sealed class CharactersUiState {
-    data class Success(val characters: List<CharacterResponse>) : CharactersUiState()
+    data class Success(val characters: List<CharacterUiModel>) : CharactersUiState()
     data class Error(val exception: Throwable) : CharactersUiState()
     object Loading : CharactersUiState()
 }

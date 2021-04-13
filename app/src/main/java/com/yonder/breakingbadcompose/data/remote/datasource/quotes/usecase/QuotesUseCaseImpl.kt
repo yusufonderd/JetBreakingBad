@@ -4,7 +4,7 @@ import com.yonder.breakingbadcompose.core.NetworkResult
 import com.yonder.breakingbadcompose.data.remote.datasource.quotes.repo.QuotesRepository
 import com.yonder.breakingbadcompose.data.remote.response.QuoteResponse
 import com.yonder.breakingbadcompose.di.IoDispatcher
-import com.yonder.breakingbadcompose.domain.mapper.Mapper
+import com.yonder.breakingbadcompose.domain.mapper.base.Mapper
 import com.yonder.breakingbadcompose.domain.model.QuoteUiModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.catch
