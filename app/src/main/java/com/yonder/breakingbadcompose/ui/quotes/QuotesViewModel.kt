@@ -40,7 +40,7 @@ class QuotesViewModel @Inject constructor(
 }
 
 sealed class QuotesUiState {
-    data class Success(val characters: List<QuoteResponse>) : QuotesUiState()
+    data class Success(val quotes: List<QuoteResponse>) : QuotesUiState()
     data class Error(val exception: Throwable) : QuotesUiState()
     object Loading : QuotesUiState()
 }
