@@ -13,9 +13,8 @@ import com.yonder.breakingbadcompose.R
 
 @Composable
 fun Characters(navController: NavController) {
-    val exampleViewModel = hiltNavGraphViewModel<CharactersViewModel>()
-
-    val characterState by exampleViewModel.characters.collectAsState()
+    val viewModel = hiltNavGraphViewModel<CharactersViewModel>()
+    val characterState by viewModel.characters.collectAsState()
 
     when (characterState) {
         is CharactersUiState.Loading -> {

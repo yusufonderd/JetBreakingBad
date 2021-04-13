@@ -1,6 +1,7 @@
 package com.yonder.breakingbadcompose.di
 
-import com.yonder.breakingbadcompose.data.remote.characters.CharactersApiService
+import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersApiService
+import com.yonder.breakingbadcompose.data.remote.repo.quotes.QuotesApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +17,12 @@ class ServiceModule {
     @Provides
     @Singleton
     fun provideCharactersApiService(retrofit: Retrofit): CharactersApiService {
+        return retrofit.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideQuotesApiService(retrofit: Retrofit): QuotesApiService {
         return retrofit.create()
     }
 

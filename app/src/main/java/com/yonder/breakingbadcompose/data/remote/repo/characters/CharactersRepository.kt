@@ -1,4 +1,4 @@
-package com.yonder.breakingbadcompose.data.remote.characters
+package com.yonder.breakingbadcompose.data.remote.repo.characters
 
 import com.yonder.breakingbadcompose.core.NetworkResult
 import com.yonder.breakingbadcompose.data.remote.response.CharacterResponse

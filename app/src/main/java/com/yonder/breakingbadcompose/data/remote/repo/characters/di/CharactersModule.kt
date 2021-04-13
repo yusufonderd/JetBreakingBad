@@ -1,8 +1,8 @@
-package com.yonder.breakingbadcompose.data.remote.characters.di
+package com.yonder.breakingbadcompose.data.remote.repo.characters.di
 
-import com.yonder.breakingbadcompose.data.remote.characters.CharactersApiService
-import com.yonder.breakingbadcompose.data.remote.characters.CharactersRepository
-import com.yonder.breakingbadcompose.data.remote.characters.CharactersRepositoryImpl
+import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersApiService
+import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersRepository
+import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersRepositoryImpl
 import com.yonder.breakingbadcompose.di.IoDispatcher
 import dagger.Module
 import dagger.Provides
