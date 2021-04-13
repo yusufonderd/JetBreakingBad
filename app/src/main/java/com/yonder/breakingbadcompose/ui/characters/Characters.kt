@@ -24,8 +24,8 @@ fun Characters(navController: NavController) {
         is CharactersUiState.Success -> {
             LazyColumn {
                 item {
-                    (characterState as CharactersUiState.Success).characters.forEach {
-                        Text(text = it.name)
+                    (characterState as CharactersUiState.Success).characters.forEach { characterUiModel ->
+                        CharacterRowView(characterUIModel = characterUiModel)
                     }
                 }
             }

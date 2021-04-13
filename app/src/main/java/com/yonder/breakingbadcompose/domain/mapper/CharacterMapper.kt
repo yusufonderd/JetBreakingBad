@@ -6,6 +6,12 @@ import com.yonder.breakingbadcompose.domain.mapper.base.Mapper
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
 import javax.inject.Inject
 
-class CharacterMapper @Inject constructor(): Mapper<CharacterResponse, CharacterUiModel> {
-    override fun map(input: CharacterResponse): CharacterUiModel = CharacterUiModel(input.name.orEmpty())
+class CharacterMapper @Inject constructor() : Mapper<CharacterResponse, CharacterUiModel> {
+    override fun map(input: CharacterResponse): CharacterUiModel =
+        CharacterUiModel(
+            input.name.orEmpty(),
+            input.photo.orEmpty(),
+            input.status.orEmpty(),
+            input.nickName.orEmpty()
+        )
 }

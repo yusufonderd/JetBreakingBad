@@ -74,6 +74,8 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    //Glide
+     implementation ("com.google.accompanist:accompanist-glide:0.7.0")
 
     //Unit Test
     testImplementation("junit:junit:4.+")
