@@ -1,4 +1,4 @@
-package com.yonder.breakingbadcompose.data.remote.repo.characters
+package com.yonder.breakingbadcompose.data.remote.datasource.characters
 
 import com.yonder.breakingbadcompose.core.ApiConstants
 import com.yonder.breakingbadcompose.data.remote.response.CharacterResponse

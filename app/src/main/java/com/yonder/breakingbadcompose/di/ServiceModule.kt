@@ -1,7 +1,7 @@
 package com.yonder.breakingbadcompose.di
 
-import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersApiService
-import com.yonder.breakingbadcompose.data.remote.repo.quotes.QuotesApiService
+import com.yonder.breakingbadcompose.data.remote.datasource.characters.CharactersApiService
+import com.yonder.breakingbadcompose.data.remote.datasource.quotes.QuotesApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

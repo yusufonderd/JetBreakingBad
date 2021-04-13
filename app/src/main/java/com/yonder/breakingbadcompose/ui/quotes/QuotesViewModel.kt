@@ -2,8 +2,11 @@ package com.yonder.breakingbadcompose.ui.quotes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yonder.breakingbadcompose.data.remote.repo.quotes.QuotesRepository
+import com.yonder.breakingbadcompose.data.remote.datasource.quotes.repo.QuotesRepository
+import com.yonder.breakingbadcompose.data.remote.datasource.quotes.usecase.QuotesUseCase
+import com.yonder.breakingbadcompose.data.remote.datasource.quotes.usecase.QuotesUseCaseImpl
 import com.yonder.breakingbadcompose.data.remote.response.QuoteResponse
+import com.yonder.breakingbadcompose.domain.model.QuoteUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class QuotesViewModel @Inject constructor(
-    private val repository: QuotesRepository
+    private val quotesUseCase: QuotesUseCase
 ) : ViewModel() {
 
     private val _quotes: MutableStateFlow<QuotesUiState> =
@@ -22,15 +25,15 @@ class QuotesViewModel @Inject constructor(
     val quotes: StateFlow<QuotesUiState> get() = _quotes
 
     init {
-        getCharacters()
+        getQuotes()
     }
 
-    private fun getCharacters() {
+    private fun getQuotes() {
         viewModelScope.launch {
-            repository.getQuotes().collect { result ->
-                result.onSuccess { characters ->
-                    _quotes.value = QuotesUiState.Success(characters)
-                }.onError { error ->
+            quotesUseCase.getQuotes().collect {  result ->
+                result.onSuccess { quotes ->
+                    _quotes.value = QuotesUiState.Success(quotes)
+                }.onError {error ->
                     _quotes.value = QuotesUiState.Error(error)
                 }
             }
@@ -40,7 +43,7 @@ class QuotesViewModel @Inject constructor(
 }
 
 sealed class QuotesUiState {
-    data class Success(val quotes: List<QuoteResponse>) : QuotesUiState()
+    data class Success(val quotes: List<QuoteUiModel>) : QuotesUiState()
     data class Error(val exception: Throwable) : QuotesUiState()
     object Loading : QuotesUiState()
 }

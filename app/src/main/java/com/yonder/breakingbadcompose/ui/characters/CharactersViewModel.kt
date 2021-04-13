@@ -2,7 +2,7 @@ package com.yonder.breakingbadcompose.ui.characters
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yonder.breakingbadcompose.data.remote.repo.characters.CharactersRepository
+import com.yonder.breakingbadcompose.data.remote.datasource.characters.repo.CharactersRepository
 import com.yonder.breakingbadcompose.data.remote.response.CharacterResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

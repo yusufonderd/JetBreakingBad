@@ -24,7 +24,7 @@ fun Quotes(navController: NavController) {
             LazyColumn {
                 item {
                     (quotesUiState as QuotesUiState.Success).quotes.forEach {
-                        Text(text = it.quote.orEmpty())
+                        Text(text = it.quote)
                     }
                 }
             }
