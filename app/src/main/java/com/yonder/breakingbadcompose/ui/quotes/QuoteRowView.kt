@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.yonder.breakingbadcompose.domain.model.QuoteUiModel
-import com.yonder.breakingbadcompose.ui.theme.padding_normal
+import com.yonder.breakingbadcompose.ui.theme.normal_padding
 
 @Composable
 fun QuoteRowView(quoteUiModel: QuoteUiModel){
@@ -22,7 +22,7 @@ fun QuoteRowView(quoteUiModel: QuoteUiModel){
     ) {
         Column(
             modifier = Modifier
-                .padding(padding_normal)
+                .padding(normal_padding)
         ) {
             Text(
                 text = quoteUiModel.author,

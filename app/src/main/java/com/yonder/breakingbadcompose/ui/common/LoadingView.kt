@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.yonder.breakingbadcompose.R
-import com.yonder.breakingbadcompose.ui.theme.padding_normal
+import com.yonder.breakingbadcompose.ui.theme.normal_padding
 
 @Composable
 fun LoadingView(centerTextResId: Int = R.string.loading) {
@@ -24,7 +24,7 @@ fun LoadingView(centerTextResId: Int = R.string.loading) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             CircularProgressIndicator(
                 modifier = Modifier
-                    .padding(padding_normal)
+                    .padding(normal_padding)
             )
             Text(text = stringResource(id = centerTextResId))
         }

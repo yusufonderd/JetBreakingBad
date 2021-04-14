@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.material.Icon
-
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -17,12 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bumptech.glide.request.RequestOptions
 import com.google.accompanist.glide.GlideImage
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
-import com.yonder.breakingbadcompose.ui.theme.Shapes
-import com.yonder.breakingbadcompose.ui.theme.character_image_size
-import com.yonder.breakingbadcompose.ui.theme.padding_normal
-import com.yonder.breakingbadcompose.ui.theme.padding_small
 import com.yonder.breakingbadcompose.R
-import com.yonder.breakingbadcompose.ui.common.ErrorView
+import com.yonder.breakingbadcompose.ui.theme.*
 
 @Composable
 fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
@@ -36,7 +31,7 @@ fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(padding_small)
+                .padding(small_padding)
         ) {
             GlideImage(
                 data = characterUIModel.imageUrl,
@@ -47,7 +42,7 @@ fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
                     apply(options)
                 },
                 modifier = Modifier
-                    .size(character_image_size)
+                    .size(character_image_row_size)
                     .clip(Shapes.small)
             )
 
@@ -62,7 +57,7 @@ fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
                     verticalArrangement = Arrangement.SpaceAround,
                     modifier = Modifier
                         .fillMaxHeight()
-                        .padding(horizontal = padding_normal)
+                        .padding(horizontal = normal_padding)
                 ) {
                     Text(
                         text = characterUIModel.name,

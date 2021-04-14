@@ -14,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.yonder.breakingbadcompose.R
-import com.yonder.breakingbadcompose.ui.theme.padding_normal
+import com.yonder.breakingbadcompose.ui.theme.normal_padding
 
 @Composable
 fun ErrorView(errorMessage: String) {
@@ -28,7 +28,7 @@ fun ErrorView(errorMessage: String) {
                 painter = painterResource(id = R.drawable.ic_baseline_error_outline_24),
                 contentDescription = "error icon",
                 tint = Color.Red,
-                modifier = Modifier.padding(padding_normal)
+                modifier = Modifier.padding(normal_padding)
             )
             Text(text = errorMessage)
         }
