@@ -12,6 +12,7 @@ import androidx.compose.material.Icon
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.bumptech.glide.request.RequestOptions
 import com.google.accompanist.glide.GlideImage
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
@@ -20,6 +21,7 @@ import com.yonder.breakingbadcompose.ui.theme.character_image_size
 import com.yonder.breakingbadcompose.ui.theme.padding_normal
 import com.yonder.breakingbadcompose.ui.theme.padding_small
 import com.yonder.breakingbadcompose.R
+import com.yonder.breakingbadcompose.ui.common.ErrorView
 
 @Composable
 fun CharacterRowView(characterUIModel: CharacterUiModel) {
@@ -95,3 +97,17 @@ fun CharacterRowView(characterUIModel: CharacterUiModel) {
 
 }
 
+
+@Preview
+@Composable
+fun CharacterRowViewPreview() {
+    val imageUrl = "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+    CharacterRowView(
+        CharacterUiModel(
+            name = "Walter White",
+            imageUrl = imageUrl,
+            status = "Presumed dead",
+            nickName = "Heisenberg"
+        )
+    )
+}

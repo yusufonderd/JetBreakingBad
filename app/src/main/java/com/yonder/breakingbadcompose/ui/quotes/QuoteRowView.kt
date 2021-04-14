@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.yonder.breakingbadcompose.domain.model.QuoteUiModel
 import com.yonder.breakingbadcompose.ui.theme.padding_normal
 
@@ -36,4 +37,10 @@ fun QuoteRowView(quoteUiModel: QuoteUiModel){
         Divider(color = Color.LightGray)
     }
 
+}
+
+@Preview
+@Composable
+fun QuoteRowViewPreview() {
+    QuoteRowView(QuoteUiModel("Say My Name","Heisenberg"))
 }
