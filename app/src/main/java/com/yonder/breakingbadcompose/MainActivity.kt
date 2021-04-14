@@ -1,5 +1,6 @@
 package com.yonder.breakingbadcompose
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,9 +15,13 @@ import com.yonder.breakingbadcompose.ui.quotes.Quotes
 import com.yonder.breakingbadcompose.ui.theme.*
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.material.Icon
+import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -28,6 +33,11 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
                     Scaffold(
+                        topBar = {
+                            TopAppBar(title = {
+                                Text(text = stringResource(id = R.string.app_name))
+                            })
+                        },
                         bottomBar = {
                             BottomNavigation {
                                 val navBackStackEntry by navController.currentBackStackEntryAsState()
