@@ -1,5 +1,6 @@
 package com.yonder.breakingbadcompose.ui.characters
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -24,12 +25,13 @@ import com.yonder.breakingbadcompose.R
 import com.yonder.breakingbadcompose.ui.common.ErrorView
 
 @Composable
-fun CharacterRowView(characterUIModel: CharacterUiModel) {
+fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
     val contentDescriptor = "ContentDescriptor"
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = onClick)
     ) {
         Row(
             modifier = Modifier
@@ -76,7 +78,6 @@ fun CharacterRowView(characterUIModel: CharacterUiModel) {
                         style = MaterialTheme.typography.body2,
                         color = Color.Gray
                     )
-
                 }
 
                 Icon(
@@ -89,7 +90,6 @@ fun CharacterRowView(characterUIModel: CharacterUiModel) {
                 )
             }
 
-
         }
         Divider(color = Color.LightGray)
     }
@@ -101,13 +101,16 @@ fun CharacterRowView(characterUIModel: CharacterUiModel) {
 @Preview
 @Composable
 fun CharacterRowViewPreview() {
-    val imageUrl = "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+    val imageUrl =
+        "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
     CharacterRowView(
         CharacterUiModel(
             name = "Walter White",
             imageUrl = imageUrl,
             status = "Presumed dead",
             nickName = "Heisenberg"
-        )
+        ), onClick = {
+
+        }
     )
 }

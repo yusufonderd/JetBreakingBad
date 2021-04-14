@@ -22,6 +22,8 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.yonder.breakingbadcompose.ui.characterdetails.CharacterDetails
+import com.yonder.breakingbadcompose.ui.main.Screen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -72,6 +74,8 @@ class MainActivity : ComponentActivity() {
                         NavHost(navController, startDestination = Screen.Characters.route) {
                             composable(Screen.Characters.route) { Characters(navController) }
                             composable(Screen.Quotes.route) { Quotes(navController) }
+                            composable(Screen.CharacterDetails.route) { CharacterDetails(navController) }
+
                         }
                     }
 
@@ -84,17 +88,10 @@ class MainActivity : ComponentActivity() {
 
 val items = listOf(
     Screen.Characters,
-    Screen.Quotes,
+    Screen.Quotes
 )
 
-sealed class Screen(
-    val route: String,
-    @StringRes val resourceId: Int,
-    val icon: ImageVector
-) {
-    object Characters : Screen("characters", R.string.characters, Icons.Filled.Star)
-    object Quotes : Screen("quotes", R.string.quotes, Icons.Filled.List)
-}
+
 
 
 

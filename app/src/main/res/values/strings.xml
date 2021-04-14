@@ -4,5 +4,6 @@
     <string name="error_occurred">Error occurred </string>
     <string name="characters">Characters</string>
     <string name="quotes">Quotes</string>
+    <string name="character_details">Character Details</string>
 
 </resources>
