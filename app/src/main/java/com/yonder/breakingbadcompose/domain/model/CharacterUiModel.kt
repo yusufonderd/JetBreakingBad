@@ -10,3 +10,7 @@ data class CharacterUiModel(
     val status : String,
     val nickName: String
 ): Parcelable
+
+
+fun CharacterUiModel.firstName() = name.split(" ").firstOrNull()
+fun CharacterUiModel.lastName() = name.split(" ").lastOrNull()
