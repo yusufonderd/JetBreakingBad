@@ -1,6 +1,5 @@
 package com.yonder.breakingbadcompose.domain.mapper
 
-
 import com.yonder.breakingbadcompose.data.remote.response.CharacterResponse
 import com.yonder.breakingbadcompose.domain.mapper.base.Mapper
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
@@ -12,6 +11,7 @@ class CharacterMapper @Inject constructor() : Mapper<CharacterResponse, Characte
             input.name.orEmpty(),
             input.photo.orEmpty(),
             input.status.orEmpty(),
-            input.nickName.orEmpty()
+            input.nickName.orEmpty(),
+            input.portrayed.orEmpty()
         )
 }

@@ -7,6 +7,7 @@ data class CharacterResponse(
     @SerializedName("name") val name: String?,
     @SerializedName("birthday") val birthday: String?,
     @SerializedName("nickname") val nickName: String?,
+    @SerializedName("portrayed") val portrayed: String?,
     @SerializedName("img") val photo: String?,
     @SerializedName("status") val status: String?,
     @SerializedName("occupation") val occupation: List<String?>?,

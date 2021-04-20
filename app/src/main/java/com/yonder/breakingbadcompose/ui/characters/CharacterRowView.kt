@@ -17,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.accompanist.glide.GlideImage
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
 import com.yonder.breakingbadcompose.R
+import com.yonder.breakingbadcompose.domain.model.mockWalterWhite
 import com.yonder.breakingbadcompose.ui.theme.*
 
 @Composable
@@ -89,23 +90,13 @@ fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
         Divider(color = Color.LightGray)
     }
 
-
 }
 
 
 @Preview
 @Composable
 fun CharacterRowViewPreview() {
-    val imageUrl =
-        "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
     CharacterRowView(
-        CharacterUiModel(
-            name = "Walter White",
-            imageUrl = imageUrl,
-            status = "Presumed dead",
-            nickName = "Heisenberg"
-        ), onClick = {
-
-        }
+        mockWalterWhite, onClick = {}
     )
 }
