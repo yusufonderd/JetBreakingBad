@@ -8,8 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
+import com.yonder.breakingbadcompose.domain.model.mockWalterWhite
 import com.yonder.breakingbadcompose.ui.theme.character_image_details_size
 
 @Composable
@@ -26,7 +28,7 @@ fun CharacterHeaderView(characterUiModel: CharacterUiModel?){
                 .width(1.dp)
                 .height(character_image_details_size / 2), color = Color.LightGray
         )
-        Column() {
+        Column(verticalArrangement = Arrangement.SpaceBetween) {
             Text(
                 text = characterUiModel?.nickName.orEmpty(),
                 style = MaterialTheme.typography.h5,
@@ -41,3 +43,12 @@ fun CharacterHeaderView(characterUiModel: CharacterUiModel?){
     }
 }
 
+
+
+@Preview
+@Composable
+fun CharacterHeaderViewPreview() {
+    CharacterHeaderView(
+        mockWalterWhite
+    )
+}
