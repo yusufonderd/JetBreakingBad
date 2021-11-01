@@ -4,9 +4,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltNavGraphViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.yonder.breakingbadcompose.ui.characterdetails.CharacterDetails
 import com.yonder.breakingbadcompose.ui.common.ErrorView
 import com.yonder.breakingbadcompose.ui.common.LoadingView
@@ -15,7 +14,7 @@ import com.yonder.breakingbadcompose.ui.main.Screen
 
 @Composable
 fun Characters(navController: NavController) {
-    val viewModel = hiltNavGraphViewModel<CharactersViewModel>()
+    val viewModel = hiltViewModel<CharactersViewModel>()
     val characterState by viewModel.characters.collectAsState()
 
     when (characterState) {

@@ -1,5 +1,6 @@
 package com.yonder.breakingbadcompose.ui.characters
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
@@ -13,13 +14,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.bumptech.glide.request.RequestOptions
-import com.google.accompanist.glide.GlideImage
+import androidx.compose.ui.unit.dp
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.yonder.breakingbadcompose.domain.model.CharacterUiModel
 import com.yonder.breakingbadcompose.R
 import com.yonder.breakingbadcompose.domain.model.mockWalterWhite
 import com.yonder.breakingbadcompose.ui.theme.*
 
+@ExperimentalCoilApi
 @Composable
 fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
     val contentDescriptor = "ContentDescriptor"
@@ -34,15 +37,11 @@ fun CharacterRowView(characterUIModel: CharacterUiModel, onClick: () -> Unit) {
                 .fillMaxWidth()
                 .padding(small_padding)
         ) {
-            GlideImage(
-                data = characterUIModel.imageUrl,
+
+            Image(
+                painter = rememberImagePainter(characterUIModel.imageUrl),
                 contentDescription = contentDescriptor,
-                requestBuilder = {
-                    val options = RequestOptions()
-                    options.centerCrop()
-                    apply(options)
-                },
-                modifier = Modifier
+                modifier  = Modifier
                     .size(character_image_row_size)
                     .clip(Shapes.small)
             )

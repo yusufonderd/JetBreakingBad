@@ -42,9 +42,8 @@ class MainActivity : ComponentActivity() {
                         },
                         bottomBar = {
                             BottomNavigation {
-                                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                                val currentRoute =
-                                    navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+                                val currentRoute = navController.currentBackStackEntry?.destination?.route
+
                                 items.forEach { screen ->
                                     BottomNavigationItem(
                                         icon = {
@@ -60,7 +59,8 @@ class MainActivity : ComponentActivity() {
                                                 // Pop up to the start destination of the graph to
                                                 // avoid building up a large stack of destinations
                                                 // on the back stack as users select items
-                                                popUpTo = navController.graph.startDestination
+                                                popUpTo(navController.graph.startDestinationId)
+                                              //  popUpTo = navController.graph.sta
                                                 // Avoid multiple copies of the same destination when
                                                 // reselecting the same item
                                                 launchSingleTop = true
